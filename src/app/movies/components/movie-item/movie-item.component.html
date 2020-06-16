@@ -1,0 +1,10 @@
+<mat-card matRipple [matRippleCentered]="true">
+  <mat-grid-list cols="2" rowHeight="2rem">
+    <mat-grid-tile [colspan]="2" [rowspan]="1"><b style="font-size: 150%;">{{ _title }}</b>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">Release Date:</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">{{
+      _releaseDate | date: "MM/dd/yyyy"
+    }}</mat-grid-tile>
+  </mat-grid-list>
+</mat-card>

@@ -1,14 +1,15 @@
-<mat-grid-list cols="6">
-  <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'lightblue'">
-
-    <app-movie-item style="width: 100%;" [title]="'Hola Mundosdfsdfsdfsdfsdf sdf sdfsdfsdfsdfsdf'" [releaseDate]="date">
-    </app-movie-item>
-
-
-
-
-
+<mat-grid-list cols="6" rowHeight="100%">
+  <mat-grid-tile [colspan]="2" [style.background]="'lightblue'">
+    <div style="width: 100%;">
+      <mat-list *ngFor="let movie of setMovies() | async ">
+        <mat-list-item>
+          <app-movie-item style="width: 100%; " [title]="movie.title" [releaseDate]="movie.date">
+          </app-movie-item>
+        </mat-list-item>
+      </mat-list>
+    </div>
   </mat-grid-tile>
+
   <mat-grid-tile [colspan]="4" [rowspan]="1" [style.background]="'lightgreen'">
     <app-movie-detail style="width: 100%;" [movie]="movie"></app-movie-detail>
   </mat-grid-tile>

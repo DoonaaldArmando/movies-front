@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../../services/movie.service';
+import { Observable } from 'rxjs';
+import { Movie } from 'src/app/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass'],
 })
-export class HomeComponent implements OnInit {
-  public date = new Date();
+export class HomeComponent {
   public movie = {
     title: 'soy el titulo',
     release: new Date(),
@@ -14,7 +16,9 @@ export class HomeComponent implements OnInit {
     image:
       'https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg',
   };
-  constructor() {}
+  constructor(private movieService: MovieService) {}
 
-  ngOnInit(): void {}
+  setMovies(): Observable<Movie[]> {
+    return this.movieService.getMovies();
+  }
 }

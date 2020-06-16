@@ -1,0 +1,22 @@
+<form>
+    <mat-form-field>
+        <mat-label>Favorite food</mat-label>
+        <input matInput [formControl]="name" placeholder="Ex. Pizza">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Custom calendar color</mat-label>
+        <input matInput [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+
+
+
+
+</form>

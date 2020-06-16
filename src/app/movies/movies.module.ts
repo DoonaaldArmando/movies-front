@@ -10,6 +10,12 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { AddComponent } from './container/add/add.component';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
+import { AddFormComponent } from './components/add-form/add-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,7 @@ import { MatRippleModule } from '@angular/material/core';
     MovieItemComponent,
     MovieDetailComponent,
     AddComponent,
+    AddFormComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +33,11 @@ import { MatRippleModule } from '@angular/material/core';
     MatGridListModule,
     MatListModule,
     MatRippleModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class MoviesModule {}

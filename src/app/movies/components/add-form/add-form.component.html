@@ -1,22 +1,23 @@
-<form>
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
-        <mat-label>Favorite food</mat-label>
-        <input matInput [formControl]="name" placeholder="Ex. Pizza">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required>
+        <mat-error>Title Required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Leave a comment</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" required></textarea>
+        <mat-error>Description Required</mat-error>
     </mat-form-field>
 
     <mat-form-field color="accent">
         <mat-label>Custom calendar color</mat-label>
-        <input matInput [matDatepicker]="picker2">
+        <input matInput formControlName="releaseDate" required [matDatepicker]="picker2">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2 color="primary"></mat-datepicker>
+        <mat-error>Release Date Required</mat-error>
     </mat-form-field>
 
-
-
-
+    <button mat-flat-button color="primary" type="submit" [disabled]="!movieForm.valid">Submit</button>
 </form>

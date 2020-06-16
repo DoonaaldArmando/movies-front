@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/core';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-add',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add.component.sass'],
 })
 export class AddComponent {
-  movieFormEvent(event) {
-    console.log(event);
+  constructor(private movieService: MovieService) {}
+
+  movieFormEvent(movie: Movie) {
+    this.movieService.addMovie(movie);
   }
 }

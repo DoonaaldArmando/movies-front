@@ -9,16 +9,14 @@ import { Movie } from 'src/app/core';
   styleUrls: ['./home.component.sass'],
 })
 export class HomeComponent {
-  public movie = {
-    title: 'soy el titulo',
-    release: new Date(),
-    description: 'Hola soy una descripcion',
-    image:
-      'https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg',
-  };
-  constructor(private movieService: MovieService) {}
+  public movie: Observable<Movie>;
+  constructor(private _movieService: MovieService) {}
 
   setMovies(): Observable<Movie[]> {
-    return this.movieService.getMovies();
+    return this._movieService.getMovies();
+  }
+
+  movieDetail(movieId): void {
+    this.movie = this._movieService.getMovie(movieId);
   }
 }

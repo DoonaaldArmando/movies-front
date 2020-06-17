@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/app/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from, throwError } from 'rxjs';
+import { first, filter, defaultIfEmpty, catchError } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
@@ -20,5 +21,12 @@ export class MovieService {
 
   getMovies(): Observable<Movie[]> {
     return of(this._movies);
+  }
+
+  getMovie(movieId): Observable<Movie> {
+    return from(this._movies).pipe(
+      filter(({ id }) => id === movieId),
+      first()
+    );
   }
 }

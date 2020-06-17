@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/app/core';
-import { Observable, of, from, throwError } from 'rxjs';
+import { Observable, of, from, empty } from 'rxjs';
 import { first, filter, defaultIfEmpty, catchError } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -28,5 +28,13 @@ export class MovieService {
       filter(({ id }) => id === movieId),
       first()
     );
+  }
+
+  deleteMovie(movieId): Observable<never> {
+    const index = this._movies.map((movie) => movie.id).indexOf(movieId);
+    if (index > -1) {
+      this._movies.splice(index, 1);
+    }
+    return empty();
   }
 }

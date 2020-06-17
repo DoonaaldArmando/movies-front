@@ -4,7 +4,7 @@
       <mat-list *ngFor="let movie of setMovies() | async ">
         <mat-list-item>
           <app-movie-item style="width: 100%; " (click)="movieDetail(movie.id)" [title]="movie.title"
-            [releaseDate]="movie.date">
+            [releaseDate]="movie.releaseDate">
           </app-movie-item>
         </mat-list-item>
       </mat-list>
